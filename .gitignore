@@ -134,3 +134,4 @@ template.py
 Dockerfile
 test.py
 notebooks/
+artifact/
