@@ -1,0 +1,13 @@
+numpy
+Flask
+sklearn
+pandas
+PyYAML
+evidently
+dill
+matplotlib
+seaborn
+plotly
+pytest
+jupyter
+

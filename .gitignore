@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# manually added
+# template
+template.py
+Dockerfile
+test.py
+notebooks/
