@@ -124,9 +124,6 @@ class Configuration:
                 self.time_stamp
             )
             data_transformation_config_info= self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
-            
-            add_bedroom_per_room = data_transformation_config_info[DATA_TRANSFORMATION_ADD_COLUMN_KEY]
-
             preprocessed_object_file_path = os.path.join(
                 data_transformation_artifact_dir,
                 data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY],
@@ -145,12 +142,86 @@ class Configuration:
             )
 
             data_transformation_config = DataTransformationConfig(
-                add_bedroom_per_room=add_bedroom_per_room,
                 preprocessed_object_file_path= preprocessed_object_file_path,
                 transformed_train_dir = transformed_train_dir,
                 transformed_test_dir = transformed_test_dir
                 )
             logging.info(f"Data Transformation config: {data_transformation_config}")
             return data_transformation_config
+        except Exception as e:
+            raise WallethubException(e,sys) from e
+
+    def get_model_trainer_config(self)-> ModelTrainerConfig:
+        try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            model_trainer_artifact_dir=os.path.join(
+                artifact_dir,
+                MODEL_TRAINER_ARTIFACT_DIR,
+                self.time_stamp
+            )
+
+            model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+
+            trained_model_file_path = os.path.join(
+                model_trainer_artifact_dir,
+                model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
+                model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
+                )
+            trained_model_params_file_path = os.path.join(
+                model_trainer_artifact_dir,
+                model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_PARAMS_DIR_KEY],
+                model_trainer_config_info[MODEL_TRAINER_PARAMS_FILE_NAME_KEY]
+                )
+            base_accuracy = model_trainer_config_info[MODEL_TRAINER_BASE_ACCURACY_KEY]
+
+            base_diff_train_test_acc = model_trainer_config_info[MODEL_TRAINER_BASE_DIFF_TRAIN_TEST_ACC_KEY]
+
+            model_config_file_path = os.path.join(
+                ROOT_DIR,
+                model_trainer_config_info[MODEL_TRAINER_CONFIG_DIR_KEY],
+                model_trainer_config_info[MODEL_TRAINER_CONFIG_FILE_NAME_KEY]
+            )
+
+            model_trainer_config = ModelTrainerConfig(
+                trained_model_file_path= trained_model_file_path,
+                trained_model_params_file_path= trained_model_params_file_path,
+                base_accuracy= base_accuracy,
+                base_diff_train_test_acc = base_diff_train_test_acc,
+                model_config_file_path= model_config_file_path
+            )
+            logging.info(f"Model Trainer Config: {model_trainer_config}")
+            return model_trainer_config
+        except Exception as e:
+            raise WallethubException(e, sys) from e
+
+    def get_model_evaluation_config(self) ->ModelEvaluationConfig:
+        try:
+            model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+            artifact_dir = os.path.join(self.training_pipeline_config.artifact_dir,
+                                        MODEL_EVALUATION_ARTIFACT_DIR, )
+
+            model_evaluation_file_path = os.path.join(artifact_dir,
+                                                    model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
+            response = ModelEvaluationConfig(model_evaluation_file_path=model_evaluation_file_path,
+                                            time_stamp=self.time_stamp)
+            
+            
+            logging.info(f"Model Evaluation Config: {response}.")
+            return response
+        except Exception as e:
+            raise WallethubException(e,sys) from e
+
+
+    def get_model_pusher_config(self) -> ModelPusherConfig:
+        try:
+            time_stamp = self.time_stamp
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                                           time_stamp)
+
+            model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
+
         except Exception as e:
             raise WallethubException(e,sys) from e

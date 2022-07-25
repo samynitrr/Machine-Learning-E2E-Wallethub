@@ -3,6 +3,7 @@ from wallethub.entity.artifact_entity import DataIngestionArtifact, DataValidati
 from wallethub.exception import WallethubException
 from wallethub.logger import logging
 from wallethub.util.util import read_yaml_file
+from wallethub.constants import SCHEMA_FILE_PATH
 import os,sys
 import pandas as pd
 import json
@@ -61,9 +62,9 @@ class DataValidation:
         try:
             validation_status = False
             # Read Schema information
-            schema_info = read_yaml_file(self.data_validation_config.schema_file_path)
+            schema_file_path = SCHEMA_FILE_PATH
+            schema_info = read_yaml_file(schema_file_path)
             schema_columns = list(schema_info["columns"].keys())
-            schema_domain_values = list(schema_info["domain_value"]["ocean_proximity"])
             schema_number_of_columns = len(schema_columns)
 
             # Read Train and Test file
@@ -72,12 +73,10 @@ class DataValidation:
             # Read Train File information
             train_columns = list(df_train.columns)
             train_no_of_columns = len(train_columns)
-            train_domain_values = list(df_train["ocean_proximity"].value_counts().index)
 
             # Read Test file information
             test_columns = list(df_test.columns)
             test_no_of_columns = len(test_columns)
-            test_domain_values = list(df_test["ocean_proximity"].value_counts().index)
 
             # 1. Number of Columns            
             is_number_of_columns_match = (schema_number_of_columns == train_no_of_columns)\
@@ -94,19 +93,10 @@ class DataValidation:
             else:
                 is_name_of_columns_match = False
 
-             # 3. Ocean_proximity values
-            schema_domain_values.sort()
-            train_domain_values.sort()
-            test_domain_values.sort()
-            if (schema_domain_values == train_domain_values) and (schema_domain_values == test_domain_values):
-                is_domain_value_match = True
-            else:
-                is_domain_value_match = False
-            if not is_domain_value_match:
-                pass              
+             
 
 
-            validation_status = is_number_of_columns_match and is_name_of_columns_match and is_domain_value_match
+            validation_status = is_number_of_columns_match and is_name_of_columns_match 
             return validation_status
         except Exception as e:
             raise WallethubException(e,sys) from e   

@@ -4,11 +4,9 @@ from wallethub.exception import WallethubException
 from wallethub.logger import logging
 from wallethub.util.util import get_gdrive_file_id, download_file_from_google_drive
 import os,sys
-import tarfile
 import zipfile
 import pandas as pd
 from sklearn.model_selection import StratifiedShuffleSplit
-import numpy as np
 class DataIngestion:
 
     def __init__(self,
@@ -85,8 +83,8 @@ class DataIngestion:
 
             df["temp_y"] = pd.cut(
                 df["y"],
-                bins = [300, 400, 500, 600, 700, 800, np.inf],
-                labels=[1,2,3,4,5,6]
+                bins = [210, 310, 410, 510, 610, 710, 810, 910],
+                labels=[1,2,3,4,5,6,7]
             )
 
             logging.info(f"Splitting data into train and test")
@@ -98,6 +96,7 @@ class DataIngestion:
             for train_index, test_index in split.split(df, df["temp_y"]):
                 strat_train_set = df.loc[train_index].drop(["temp_y"], axis=1)
                 strat_test_set = df.loc[test_index].drop(["temp_y"], axis=1)
+            
 
             train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir, file_name)
             test_file_path = os.path.join(self.data_ingestion_config.ingested_test_dir, file_name)

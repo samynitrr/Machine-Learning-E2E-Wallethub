@@ -1,0 +1,614 @@
+categorical_columns: []
+columns:
+  x001: int64
+  x002: float64
+  x003: float64
+  x004: float64
+  x005: float64
+  x006: int64
+  x007: int64
+  x008: int64
+  x009: int64
+  x010: int64
+  x011: int64
+  x012: int64
+  x013: int64
+  x014: int64
+  x015: int64
+  x016: int64
+  x017: int64
+  x018: int64
+  x019: int64
+  x020: int64
+  x021: int64
+  x022: int64
+  x023: int64
+  x024: int64
+  x025: int64
+  x026: int64
+  x027: int64
+  x028: int64
+  x029: int64
+  x030: int64
+  x031: int64
+  x032: int64
+  x033: int64
+  x034: int64
+  x035: int64
+  x036: int64
+  x037: int64
+  x038: int64
+  x039: int64
+  x040: int64
+  x041: float64
+  x042: int64
+  x043: int64
+  x044: float64
+  x045: float64
+  x046: int64
+  x047: int64
+  x048: int64
+  x049: int64
+  x050: int64
+  x051: int64
+  x052: int64
+  x053: int64
+  x054: int64
+  x055: int64
+  x056: int64
+  x057: float64
+  x058: float64
+  x059: int64
+  x060: int64
+  x061: int64
+  x062: int64
+  x063: int64
+  x064: int64
+  x065: int64
+  x066: int64
+  x067: int64
+  x068: int64
+  x069: int64
+  x070: int64
+  x071: int64
+  x072: int64
+  x073: int64
+  x074: int64
+  x075: int64
+  x076: int64
+  x077: int64
+  x078: int64
+  x079: int64
+  x080: int64
+  x081: int64
+  x082: int64
+  x083: int64
+  x084: int64
+  x085: int64
+  x086: int64
+  x087: int64
+  x088: int64
+  x089: int64
+  x090: int64
+  x091: int64
+  x092: int64
+  x093: int64
+  x094: int64
+  x095: int64
+  x096: int64
+  x097: int64
+  x098: float64
+  x099: int64
+  x100: int64
+  x101: int64
+  x102: int64
+  x103: int64
+  x104: int64
+  x105: int64
+  x106: int64
+  x107: int64
+  x108: int64
+  x109: int64
+  x110: int64
+  x111: int64
+  x112: int64
+  x113: int64
+  x114: int64
+  x115: int64
+  x116: int64
+  x117: int64
+  x118: int64
+  x119: int64
+  x120: int64
+  x121: int64
+  x122: int64
+  x123: int64
+  x124: int64
+  x125: int64
+  x126: int64
+  x127: int64
+  x128: int64
+  x129: int64
+  x130: int64
+  x131: int64
+  x132: int64
+  x133: int64
+  x134: int64
+  x135: int64
+  x136: int64
+  x137: int64
+  x138: int64
+  x139: int64
+  x140: int64
+  x141: int64
+  x142: int64
+  x143: int64
+  x144: int64
+  x145: int64
+  x146: int64
+  x147: int64
+  x148: float64
+  x149: int64
+  x150: int64
+  x151: int64
+  x152: int64
+  x153: int64
+  x154: int64
+  x155: float64
+  x156: int64
+  x157: int64
+  x158: int64
+  x159: int64
+  x160: int64
+  x161: int64
+  x162: float64
+  x163: int64
+  x164: int64
+  x165: int64
+  x166: int64
+  x167: int64
+  x168: int64
+  x169: int64
+  x170: int64
+  x171: int64
+  x172: int64
+  x173: int64
+  x174: int64
+  x175: int64
+  x176: int64
+  x177: int64
+  x178: int64
+  x179: int64
+  x180: int64
+  x181: int64
+  x182: int64
+  x183: int64
+  x184: int64
+  x185: int64
+  x186: int64
+  x187: int64
+  x188: int64
+  x189: int64
+  x190: int64
+  x191: int64
+  x192: int64
+  x193: int64
+  x194: int64
+  x195: int64
+  x196: int64
+  x197: int64
+  x198: int64
+  x199: int64
+  x200: int64
+  x201: int64
+  x202: int64
+  x203: int64
+  x204: int64
+  x205: int64
+  x206: int64
+  x207: int64
+  x208: int64
+  x209: int64
+  x210: int64
+  x211: int64
+  x212: int64
+  x213: int64
+  x214: int64
+  x215: int64
+  x216: int64
+  x217: int64
+  x218: int64
+  x219: int64
+  x220: int64
+  x221: int64
+  x222: float64
+  x223: float64
+  x224: int64
+  x225: int64
+  x226: int64
+  x227: int64
+  x228: int64
+  x229: int64
+  x230: int64
+  x231: int64
+  x232: int64
+  x233: int64
+  x234: float64
+  x235: float64
+  x236: int64
+  x237: float64
+  x238: float64
+  x239: float64
+  x240: int64
+  x241: int64
+  x242: float64
+  x243: int64
+  x244: int64
+  x245: int64
+  x246: int64
+  x247: int64
+  x248: int64
+  x249: int64
+  x250: int64
+  x251: int64
+  x252: int64
+  x253: float64
+  x254: int64
+  x255: float64
+  x256: float64
+  x257: float64
+  x258: int64
+  x259: float64
+  x260: int64
+  x261: int64
+  x262: int64
+  x263: int64
+  x264: int64
+  x265: float64
+  x266: float64
+  x267: float64
+  x268: float64
+  x269: int64
+  x270: int64
+  x271: int64
+  x272: float64
+  x273: int64
+  x274: int64
+  x275: float64
+  x276: int64
+  x277: int64
+  x278: int64
+  x279: int64
+  x280: int64
+  x281: int64
+  x282: int64
+  x283: int64
+  x284: int64
+  x285: int64
+  x286: int64
+  x287: float64
+  x288: float64
+  x289: float64
+  x290: float64
+  x291: int64
+  x292: int64
+  x293: float64
+  x294: int64
+  x295: float64
+  x296: int64
+  x297: float64
+  x298: int64
+  x299: int64
+  x300: int64
+  x301: int64
+  x302: float64
+  x303: int64
+  x304: float64
+  y: int64
+domain_value: {}
+numerical_columns:
+- x001
+- x002
+- x003
+- x004
+- x005
+- x006
+- x007
+- x008
+- x009
+- x010
+- x011
+- x012
+- x013
+- x014
+- x015
+- x016
+- x017
+- x018
+- x019
+- x020
+- x021
+- x022
+- x023
+- x024
+- x025
+- x026
+- x027
+- x028
+- x029
+- x030
+- x031
+- x032
+- x033
+- x034
+- x035
+- x036
+- x037
+- x038
+- x039
+- x040
+- x041
+- x042
+- x043
+- x044
+- x045
+- x046
+- x047
+- x048
+- x049
+- x050
+- x051
+- x052
+- x053
+- x054
+- x055
+- x056
+- x057
+- x058
+- x059
+- x060
+- x061
+- x062
+- x063
+- x064
+- x065
+- x066
+- x067
+- x068
+- x069
+- x070
+- x071
+- x072
+- x073
+- x074
+- x075
+- x076
+- x077
+- x078
+- x079
+- x080
+- x081
+- x082
+- x083
+- x084
+- x085
+- x086
+- x087
+- x088
+- x089
+- x090
+- x091
+- x092
+- x093
+- x094
+- x095
+- x096
+- x097
+- x098
+- x099
+- x100
+- x101
+- x102
+- x103
+- x104
+- x105
+- x106
+- x107
+- x108
+- x109
+- x110
+- x111
+- x112
+- x113
+- x114
+- x115
+- x116
+- x117
+- x118
+- x119
+- x120
+- x121
+- x122
+- x123
+- x124
+- x125
+- x126
+- x127
+- x128
+- x129
+- x130
+- x131
+- x132
+- x133
+- x134
+- x135
+- x136
+- x137
+- x138
+- x139
+- x140
+- x141
+- x142
+- x143
+- x144
+- x145
+- x146
+- x147
+- x148
+- x149
+- x150
+- x151
+- x152
+- x153
+- x154
+- x155
+- x156
+- x157
+- x158
+- x159
+- x160
+- x161
+- x162
+- x163
+- x164
+- x165
+- x166
+- x167
+- x168
+- x169
+- x170
+- x171
+- x172
+- x173
+- x174
+- x175
+- x176
+- x177
+- x178
+- x179
+- x180
+- x181
+- x182
+- x183
+- x184
+- x185
+- x186
+- x187
+- x188
+- x189
+- x190
+- x191
+- x192
+- x193
+- x194
+- x195
+- x196
+- x197
+- x198
+- x199
+- x200
+- x201
+- x202
+- x203
+- x204
+- x205
+- x206
+- x207
+- x208
+- x209
+- x210
+- x211
+- x212
+- x213
+- x214
+- x215
+- x216
+- x217
+- x218
+- x219
+- x220
+- x221
+- x222
+- x223
+- x224
+- x225
+- x226
+- x227
+- x228
+- x229
+- x230
+- x231
+- x232
+- x233
+- x234
+- x235
+- x236
+- x237
+- x238
+- x239
+- x240
+- x241
+- x242
+- x243
+- x244
+- x245
+- x246
+- x247
+- x248
+- x249
+- x250
+- x251
+- x252
+- x253
+- x254
+- x255
+- x256
+- x257
+- x258
+- x259
+- x260
+- x261
+- x262
+- x263
+- x264
+- x265
+- x266
+- x267
+- x268
+- x269
+- x270
+- x271
+- x272
+- x273
+- x274
+- x275
+- x276
+- x277
+- x278
+- x279
+- x280
+- x281
+- x282
+- x283
+- x284
+- x285
+- x286
+- x287
+- x288
+- x289
+- x290
+- x291
+- x292
+- x293
+- x294
+- x295
+- x296
+- x297
+- x298
+- x299
+- x300
+- x301
+- x302
+- x303
+- x304
+target_column: y

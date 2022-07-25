@@ -8,6 +8,8 @@ import numpy as np
 from wallethub.exception import WallethubException
 from wallethub.constants import *
 import requests
+import shutil
+
 
 def log_file_name():
         return f"log_{get_current_time_stamp()}.log"
@@ -112,7 +114,7 @@ def generate_and_save_schema_file(data_file_path:str,
                 "domain_value":
                     domain_value
                      }
-            schema_dir = "schema"
+            schema_dir = "config"
             os.makedirs(schema_dir, exist_ok=True)
             schema_file_name = "schema.yaml"
             save_schema_file_path = os.path.join(
@@ -198,6 +200,18 @@ def load_dataset(file_path:str, schema_file_path:str)->pd.DataFrame:
     except Exception as e:
         raise WallethubException(e,sys) from e
 
+def copyfile(source_file_path:str, dest_file_path:str):
+    """
+    source_file_path: str
+    dest_file_path: str
+    """
+    try:
+        dest_dir_path = os.path.dirname(dest_file_path)
+        os.makedirs(dest_dir_path, exist_ok=True)
+        shutil.copy(src=source_file_path, dst=dest_file_path)
+        return dest_file_path
+    except Exception as e:
+        raise WallethubException(e,sys) from e
 
 
 ##Download the file from Google drive

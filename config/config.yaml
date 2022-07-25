@@ -19,7 +19,6 @@ data_validation_config:
   report_page_file_name: report.html
 
 data_transformation_config:
-  add_bedroom_per_room: true
   transformed_dir: transformed_data
   transformed_train_dir: train
   transformed_test_dir: test
@@ -30,8 +29,11 @@ model_trainer_config:
   trained_model_dir: trained_model
   model_file_name: model.pkl
   base_accuracy: 0.6
+  base_diff_train_test_acc: 0.05
   model_config_dir: config
-  model_config_file_name: model.yaml  
+  model_config_file_name: model.yaml
+  trained_model_params_dir: trained_model_params
+  params_file_name: params.yaml
 
 
 model_evaluation_config:

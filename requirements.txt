@@ -1,6 +1,6 @@
 numpy
 Flask
-sklearn
+scikit-learn
 pandas
 PyYAML
 evidently
@@ -8,6 +8,6 @@ dill
 matplotlib
 seaborn
 plotly
-pytest
 jupyter
-
+xgboost
+catboost
