@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta>
+<title>
+    Machine Learning Dashboard Project
+</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="barcode"></ion-icon></ion-icon></span>
+                        <span class="title">SAML.AI</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects">
+                        <span class="icon"><ion-icon name="folder-open-outline"></ion-icon></span>
+                        <span class="title">Project</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="data">
+                        <span class="icon"><ion-icon name="analytics-outline"></ion-icon></span>
+                        <span class="title">Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="feature">
+                        <span class="icon"><ion-icon name="logo-buffer"></ion-icon></span>
+                        <span class="title">Feature</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="model">
+                        <span class="icon"><ion-icon name="logo-apple-ar"></ion-icon></span>
+                        <span class="title">Model</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="artifact">
+                        <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                        <span class="title">Artifacts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="deploy">
+                        <span class="icon"><ion-icon name="cloud-upload-outline"></ion-icon></span>
+                        <span class="title">Deploy</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="predict">
+                        <span class="icon"><ion-icon name="code-slash-outline"></ion-icon></span>
+                        <span class="title">Prediction</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="log">
+                        <span class="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                        <span class="title">Logs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- main -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <!-- search -->
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <!-- user -->
+                <div class="user">
+                    <img src="/static/images/user.jpg">
+                </div>
+            </div>
+
+            <!-- cards -->
+            <div class="cardbox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">80</div>
+                        <div class="cardName">Sales</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">284</div>
+                        <div class="cardName">Comments</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">$7,842</div>
+                        <div class="cardName">Earning</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="cash-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="details">
+                <!-- order details list -->
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Orders</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Price</td>
+                                <td>Payment</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- New Customers -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Recent Customers</h2>
+                    </div>
+                    <table>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img1.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img2.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img3.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img4.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img5.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img6.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img7.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img8.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/static/images/img9.jpg"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+    <script src="/static/lib/layout.js"></script> 
+</body>
+</html>

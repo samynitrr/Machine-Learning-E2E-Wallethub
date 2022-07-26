@@ -1,0 +1,162 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="cardHeader">
+    <h2>Best Model</h2>
+</div>
+<div class="details">
+    <!-- order details list -->
+    <div class="recentOrders"> 
+        <!-- {% if "saved_models" in result['parent_folder'] %}
+        <a href="/saved_models/{{result['parent_folder']}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+        
+        <h4 style="text-align:center;">
+        {{result['parent_label']}}
+        </h4>
+            {% endif %}
+
+        <div class="row">
+            {% for href,label in result["files"].items() %}
+            <div class="col-md-2 text-center">
+                <a href="/saved_models/{{href}}" style="text-decoration: none;">
+
+                    <i class="fa {% if '.' in label %} fa-file {% else %} fa-folder {% endif %} fa-8x" aria-hidden="true"></i> <br>{{ label }}
+                    {% if '.' in label %}
+                <i class="fa fa-download" aria-hidden="true"></i>
+                {% endif %}
+            </a>
+            </div>
+            {% endfor %} -->
+       
+    </div>                   
+        <!-- <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>NUMBER OF ROWS/SIZE</td>
+                    <td>LATEST VERSION</td>
+                    <td>STATUS</td>
+                    <td>CREATED</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>47138409e</td>
+                    <td>Credit Score</td>
+                    <td>100K/65MB</td>
+                    <td>2d8d0757a</td>
+                    <td>Active</td>
+                    <td>Jul 25</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+</div>
+
+<div class="cardHeader">
+    <h2>Model Training</h2>
+    <a href="#" class="btn">Train</a>
+</div>
+<div class="details">
+    <!-- order details list -->
+    <div class="recentOrders">
+        <div class="alert alert-primary" role="alert">
+            <!-- {{ context['message']}} -->
+          </div>
+      
+            <!-- {{ context['experiment']|safe }}                     -->
+        <!-- <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>NUMBER OF ROWS/SIZE</td>
+                    <td>LATEST VERSION</td>
+                    <td>STATUS</td>
+                    <td>CREATED</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>47138409e</td>
+                    <td>Credit Score</td>
+                    <td>100K/65MB</td>
+                    <td>2d8d0757a</td>
+                    <td>Active</td>
+                    <td>Jul 25</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+</div>
+
+<div class="cardHeader">
+    <h2>Experiment History</h2>
+</div>
+<div class="details">
+    <!-- order details list -->
+    <div class="recentOrders">   
+        {{ context2['experiment']|safe }}                 
+        <!-- <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>NUMBER OF ROWS/SIZE</td>
+                    <td>LATEST VERSION</td>
+                    <td>STATUS</td>
+                    <td>CREATED</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>47138409e</td>
+                    <td>Credit Score</td>
+                    <td>100K/65MB</td>
+                    <td>2d8d0757a</td>
+                    <td>Active</td>
+                    <td>Jul 25</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+</div>
+
+<div class="cardHeader">
+    <h2>Model Parameter</h2>
+    <a href="https://jsonformatter.curiousconcept.com/#" class="btn btn-primary" target="_blank">Validate model config json</a>
+</div>
+<div class="details">
+    <!-- order details list -->
+    <div class="recentOrders">   
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Existing model config</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"  readonly>
+                            {{ result['model_config'] }}
+        
+                        </textarea>
+                      
+                      
+                </div>
+            </form>
+                <form method="post">
+                    <div class="mb-3">
+                    <label for="exampleFormControlTextarea2" class="form-label">Model Config JSON:</label>
+                    <textarea class="form-control2" name="new_model_config" id="exampleFormControlTextarea2" rows="10"></textarea>
+                    </div>                  
+                    <div class="mb-3">
+                        <input type="submit"  class="btn btn-danger" value="Update model config"/>
+                    </div>
+                
+                </form>
+            
+        
+    </div>
+</div>
+
+
+
+{% endblock %}

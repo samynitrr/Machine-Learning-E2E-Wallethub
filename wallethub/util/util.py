@@ -9,7 +9,7 @@ from wallethub.exception import WallethubException
 from wallethub.constants import *
 import requests
 import shutil
-
+from scipy.stats import skew
 
 def log_file_name():
         return f"log_{get_current_time_stamp()}.log"
@@ -252,6 +252,108 @@ def save_response_content(response, destination):
 
 
 
+def custom_describe(df:pd.DataFrame)-> pd.DataFrame:
+    try:
+        column_name = []
+        count = []
+        typ = []
+        missing = []
+        unique = []
+        mean = []
+        std = []
+        minm = []
+        q1 = []
+        median = []
+        q3 = []
+        maxm = []
+        iqr = []
+        skewness = []
+        skewness_comment = []
+        outlier = []
+        mode = []
+        for name in df.columns:
+            column_name.append(name)
+            count.append(df[name].count())
+            
+            if df[name].dtypes == int:
+                typ.append('Integer')
+            elif df[name].dtypes == float:
+                typ.append('Float')
+            else:
+                typ.append('String')
+
+            missing.append(df[name].isna().sum())
+            unique.append(len(df[name].unique()))
+            if df[name].dtypes != object :
+                skew_score = round(skew(df[name],axis=0, bias=False ),2)
+                skewness.append(skew_score)
+
+                """
+                If the skewness is between -0.5 & 0.5, the data are nearly symmetrical.
+
+                If the skewness is between -1 & -0.5 (negative skewed) or between 0.5 & 1(positive skewed), the data are slightly skewed.
+
+                If the skewness is lower than -1 (negative skewed) or greater than 1 (positive skewed), the data are extremely skewed.
+                """
+                
+                if skew_score == 0:
+                    skewness_comment.append("Symmetrical")
+                elif skew_score > -0.5 and skew_score < 0:
+                    skewness_comment.append("Fairly Symmetrical (Left)")
+                elif skew_score > 0 and skew_score < 0.5:
+                    skewness_comment.append("Fairly Symmetrical (Right)")
+                elif skew_score > -1 and skew_score < -0.5:
+                    skewness_comment.append("Moderate Left Skewed")
+                elif skew_score > 0.5 and skew_score < 1:
+                    skewness_comment.append("Moderate Right Skewed")
+                elif skew_score < -1 :
+                    skewness_comment.append("Extreme Left Skewed")
+                else:
+                    skewness_comment.append("Extreme Right Skewed")
+
+                
+                mean.append(df[name].mean())
+                std.append(df[name].std())
+                minm.append(min(df[name]))
+                median.append(df[name].median())
+                maxm.append(max(df[name]))
+                Q1 = df[name].quantile(0.25)
+                q1.append(Q1)
+                Q3 = df[name].quantile(0.75) 
+                q3.append(Q3)      
+                
+                IQR = Q3- Q1
+                iqr.append(IQR)
+                upperbound =  (df[name].quantile(0.75)) + (1.5*IQR)
+                lowerbound =  (df[name].quantile(0.25)) - (1.5*IQR)
+                
+                if min(df[name]) < lowerbound or max(df[name]) > upperbound:
+                    outlier.append("HasOutliers")
+                else:
+                    outlier.append("NoOutliers")
+                mode.append("N/A")
+            else:
+                mode.append(df[name].mode())
+                skewness.append("N/A")
+                skewness_comment.append("N/A")
+                mean.append("N/A")
+                std.append("N/A")
+                minm.append("N/A")
+                median.append("N/A")
+                maxm.append("N/A")
+                q1.append("N/A")
+                q3.append("N/A")  
+                iqr.append("N/A")
+                outlier.append("N/A")
+
+
+        data = list(zip(column_name, typ, count,missing, unique,  mean, std, mode, minm, q1, median, q3, maxm, iqr, skewness, skewness_comment, outlier))
+        column_names = ["Column Name", "Data Type", "Count", "Missing Values", "Unique Values", "Mean", "Standard Deviation" , "Mode", "Minimum", "Q1","Median","Q3","Maximum","IQR", "Skewness Score", "Skewness Comment", "Outliers"]
+        describe_df = pd.DataFrame(data, columns=column_names)
+            
+        return describe_df
+    except Exception as e:
+        raise WallethubException(e, sys) from e
     
 
 

@@ -1,11 +1,10 @@
 grid_search:
+  class: GridSearchCV
   module: sklearn.model_selection
-  class: "GridSearchCV"
   params:
-    cv: 2
-    verbose: 2
+    cv: 3
     n_jobs: -1
-
+    verbose: 2
 model_selection:
   module_0:
     class: XGBRegressor
@@ -16,36 +15,40 @@ model_selection:
       learning_rate:
       - 0.01
       - 0.1
-      n_estimators:
-      - 100
-      - 200
       max_depth:
       - 3
       - 6
+      n_estimators:
+      - 100
+      - 200
   module_1:
     class: CatBoostRegressor
     module: catboost
     params:
       loss_function: RMSE
     search_param_grid:
-      iterations:
-      - 100
-      - 200
-      learning_rate:
-      - 0.03
-      - 0.1
       depth:
       - 4
       - 8
+      iterations:
+      - 100
+      - 200
       l2_leaf_reg:
       - 0.5
       - 3
+      learning_rate:
+      - 0.03
+      - 0.1
   module_2:
     class: RandomForestRegressor
     module: sklearn.ensemble
     params:
       min_samples_leaf: 2
     search_param_grid:
+      max_depth:
+      - 2
+      - 4
+      - 6
       min_samples_leaf:
       - 4
       - 6
@@ -53,8 +56,3 @@ model_selection:
       n_estimators:
       - 100
       - 200
-      max_depth:
-      - 2
-      - 4
-      - 6
-
